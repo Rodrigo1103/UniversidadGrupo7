@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package universidadgrupo7;
 
 import java.sql.*;
@@ -10,10 +5,7 @@ import java.time.LocalDate;
 import universidadgrupo7.AccesoADatos.*;
 import universidadgrupo7.Entidades.*;
 
-/**
- *
- * @author rodri
- */
+
 public class UniversidadGrupo7 {
 
     /**
@@ -24,8 +16,8 @@ public class UniversidadGrupo7 {
         //Alumno juan=new Alumno(1,12312312,"Luna","Juan Pedro",LocalDate.of(1980,4,25),true);
         //AlumnoData al=new AlumnoData();
         
-        Materia mat=new Materia(1,"Base de Datos",2023,true);
-        MateriaData m1=new MateriaData();
+        //Materia mat=new Materia(1,"Base de Datos",2023,true);
+        //MateriaData m1=new MateriaData();
         
 //        m1.guardarMateria(mat);
 //        System.out.println(mat.getIdMateria());
@@ -53,11 +45,42 @@ public class UniversidadGrupo7 {
         
         //m1.eliminarMateria(2);
         
-        for(Materia materia:m1.listarMaterias()){
-            System.out.println(materia.toString());
+//        for(Materia materia:m1.listarMaterias()){
+//            System.out.println(materia.toString());
+//        }
+        
+        AlumnoData ad=new AlumnoData();
+        MateriaData md=new MateriaData();
+        InscripcionData id=new InscripcionData();
+        
+        //Alumno a1=ad.buscarAlumno(3);
+        //Materia m1=md.buscarMateria(1);
+        //Inscripcion i1=new Inscripcion(a1,m1,9);
+        //id.guardarInscripcion(i1);
+        //id.actualizarNota(3, 1, 9.5);
+        //id.borrarInscripcion(3, 1);
+        
+//        for(Inscripcion inscripcion:id.obtenerInscripciones()){
+//            System.out.println("ID: "+inscripcion.getIdInscripcion());
+//            System.out.println("Apellido: "+inscripcion.getAlumno().getApellido());
+//            System.out.println("Materia: "+inscripcion.getMateria().getNombre());
+//            System.out.println("-------------------------------------------------");
+//        }
+        
+//       for(Inscripcion ins:id.obtenerInscripcionesPorAlumno(1)){
+//           System.out.println("ID: "+ins.getIdInscripcion());
+//            System.out.println("Apellido: "+ins.getAlumno().getApellido());
+//            System.out.println("Materia: "+ins.getMateria().getNombre());
+//            System.out.println("-------------------------------------------------");
+//       }
+       
+        for(Materia materia:id.obtenerMateriasNOCursadas(3)){
+            System.out.println("Nombre "+materia.getNombre());
         }
-
-
+       
+       
+       
+       
     }
     
 }
