@@ -7,9 +7,8 @@ package universidadgrupo7;
 
 import java.sql.*;
 import java.time.LocalDate;
-import universidadgrupo7.AccesoADatos.AlumnoData;
-import universidadgrupo7.AccesoADatos.Conexion;
-import universidadgrupo7.Entidades.Alumno;
+import universidadgrupo7.AccesoADatos.*;
+import universidadgrupo7.Entidades.*;
 
 /**
  *
@@ -23,7 +22,14 @@ public class UniversidadGrupo7 {
     public static void main(String[] args) {
         Connection conexion=Conexion.getConexion();
         //Alumno juan=new Alumno(1,12312312,"Luna","Juan Pedro",LocalDate.of(1980,4,25),true);
-        AlumnoData al=new AlumnoData();
+        //AlumnoData al=new AlumnoData();
+        
+        Materia mat=new Materia(1,"Base de Datos",2023,true);
+        MateriaData m1=new MateriaData();
+        
+//        m1.guardarMateria(mat);
+//        System.out.println(mat.getIdMateria());
+
         //al.guardarAlumno(juan);
         //al.modificarAlumno(juan);
         //al.eliminarAlumno(1);
@@ -33,10 +39,25 @@ public class UniversidadGrupo7 {
         }
         */
         
-        for(Alumno alumno:al.listarAlumno()){
-            System.out.println(alumno.toString());
-        }
+//        for(Alumno alumno:al.listarAlumno()){
+//            System.out.println(alumno.toString());
+//        }
         
+//        mat=m1.buscarMateria(1);
+//        if(m1!=null){
+//            System.out.println(mat.toString());
+//        }
+        
+        
+        //m1.modificarMateria(mat);
+        
+        //m1.eliminarMateria(2);
+        
+        for(Materia materia:m1.listarMaterias()){
+            System.out.println(materia.toString());
+        }
+
+
     }
     
 }
