@@ -74,11 +74,15 @@ public class UniversidadGrupo7 {
 //            System.out.println("-------------------------------------------------");
 //       }
        
-        for(Materia materia:id.obtenerMateriasNOCursadas(3)){
-            System.out.println("Nombre "+materia.getNombre());
-        }
+//        for(Materia materia:id.obtenerMateriasNOCursadas(3)){
+//            System.out.println("Nombre "+materia.getNombre());
+//        }
        
-       
+
+        System.out.println("Materia "+md.buscarMateria(2).getNombre());
+       for(Alumno alumno:id.obtenerAlumnosPorMateria(2)){
+           System.out.println("Nombre "+alumno.getNombre());
+       }
        
        
     }
