@@ -9,6 +9,7 @@ import universidadgrupo7.AccesoADatos.*;
 import universidadgrupo7.Entidades.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -185,10 +186,15 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         int filaSeleccionada=jtInscripcion.getSelectedRow();
         if(filaSeleccionada!=-1){
             int idInscripto=(Integer)modelo.getValueAt(filaSeleccionada, 0);
+            try{
             double nota=Double.parseDouble(jtNota.getText().toString());
             insData.actualizarNotaI(idInscripto,nota);
             jtNota.setText("");
             borrarFilaTabla();
+            }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this,"Debe ingresar un nota válida");
+            jtNota.setText("");
+        }
         }
         
         
