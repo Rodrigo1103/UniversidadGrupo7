@@ -43,8 +43,16 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         
         
         modelo=new DefaultTableModel();
+        
+        
+        
+        
         cargaAlumnos();
         armarCabeceraTabla();
+        
+        //jtNota.setEnabled(false);
+        
+        
     }
 
     /**
@@ -63,8 +71,6 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jtInscripcion = new javax.swing.JTable();
         jbGuardar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
-        jtNota = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -108,9 +114,6 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("NOTA");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,11 +130,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
                                 .addGap(324, 324, 324)
                                 .addComponent(jbGuardar)
                                 .addGap(108, 108, 108)
-                                .addComponent(jbSalir))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtNota, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jbSalir)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -152,11 +151,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
                     .addComponent(cboxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jtNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbSalir))
@@ -187,13 +182,11 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         if(filaSeleccionada!=-1){
             int idInscripto=(Integer)modelo.getValueAt(filaSeleccionada, 0);
             try{
-            double nota=Double.parseDouble(jtNota.getText().toString());
+            double nota=Double.parseDouble(modelo.getValueAt(filaSeleccionada, 2).toString());
             insData.actualizarNotaI(idInscripto,nota);
-            jtNota.setText("");
             borrarFilaTabla();
             }catch(NumberFormatException ex){
             JOptionPane.showMessageDialog(this,"Debe ingresar un nota válida");
-            jtNota.setText("");
         }
         }
         
@@ -231,11 +224,9 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<Alumno> cboxAlumno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbSalir;
     private javax.swing.JTable jtInscripcion;
-    private javax.swing.JTextField jtNota;
     // End of variables declaration//GEN-END:variables
 }
